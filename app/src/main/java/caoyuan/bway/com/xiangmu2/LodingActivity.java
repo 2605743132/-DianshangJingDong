@@ -1,6 +1,7 @@
 package caoyuan.bway.com.xiangmu2;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -32,10 +33,18 @@ public class LodingActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void initData() {
-        imagelist.add(R.drawable.a);
-        imagelist.add(R.drawable.b);
-        imagelist.add(R.drawable.c);
-        mVplun.setAdapter(new PageAdapter(imagelist));
+        if (isFirst()) {
+            imagelist.add(R.drawable.a);
+            imagelist.add(R.drawable.b);
+            imagelist.add(R.drawable.c);
+            mVplun.setAdapter(new PageAdapter(imagelist));
+        }else{
+       jupe();
+
+
+        }
+
+
        mVplun.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
            @Override
            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -76,12 +85,30 @@ public class LodingActivity extends AppCompatActivity implements View.OnClickLis
             default:
                 break;
             case R.id.btn_li:
-                Intent intent = new Intent(LodingActivity.this,MainActivity.class);
-                startActivity(intent);
-                finish();
+                jupe();
+
                 break;
 
 
         }
+
     }
+
+    private void jupe() {
+        SharedPreferences sp = getSharedPreferences("sp_name", MODE_PRIVATE);
+        SharedPreferences.Editor edit = sp.edit();
+        edit.putBoolean("isfalse", false);
+        edit.commit();
+        Intent intent = new Intent(LodingActivity.this,MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public  boolean isFirst(){
+        SharedPreferences sp = getSharedPreferences("sp_name", MODE_PRIVATE);
+        boolean isFirst = sp.getBoolean("isfalse",true);
+
+        return isFirst;
+    }
+
 }
