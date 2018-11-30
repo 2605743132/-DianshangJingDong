@@ -1,4 +1,4 @@
-package caoyuan.bway.com.xiangmu2;
+package caoyuan.bway.com.xiangmu2.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,7 +11,9 @@ import android.widget.Button;
 import java.util.ArrayList;
 import java.util.List;
 
+import caoyuan.bway.com.xiangmu2.R;
 import caoyuan.bway.com.xiangmu2.adapter.PageAdapter;
+import caoyuan.bway.com.xiangmu2.loginmvp.LoginActivity;
 
 public class LodingActivity extends AppCompatActivity implements View.OnClickListener {
     private List<Integer> imagelist = new ArrayList<>();
@@ -39,7 +41,7 @@ public class LodingActivity extends AppCompatActivity implements View.OnClickLis
             imagelist.add(R.drawable.c);
             mVplun.setAdapter(new PageAdapter(imagelist));
         }else{
-       jupe();
+            jupe();
 
 
         }
@@ -69,16 +71,12 @@ public class LodingActivity extends AppCompatActivity implements View.OnClickLis
            }
        });
     }
-
     private void initView() {
         mVplun = (ViewPager) findViewById(R.id.vplun);
-
-
         mVplun.setOnClickListener(this);
         mBtnLi = (Button) findViewById(R.id.btn_li);
         mBtnLi.setOnClickListener(this);
     }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -86,14 +84,9 @@ public class LodingActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.btn_li:
                 jupe();
-
                 break;
-
-
         }
-
     }
-
     private void jupe() {
         SharedPreferences sp = getSharedPreferences("sp_name", MODE_PRIVATE);
         SharedPreferences.Editor edit = sp.edit();
@@ -103,11 +96,9 @@ public class LodingActivity extends AppCompatActivity implements View.OnClickLis
         startActivity(intent);
         finish();
     }
-
     public  boolean isFirst(){
         SharedPreferences sp = getSharedPreferences("sp_name", MODE_PRIVATE);
         boolean isFirst = sp.getBoolean("isfalse",true);
-
         return isFirst;
     }
 
