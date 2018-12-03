@@ -1,6 +1,7 @@
 package caoyuan.bway.com.xiangmu2.loginmvp;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import caoyuan.bway.com.xiangmu2.R;
+import caoyuan.bway.com.xiangmu2.activity.MainActivity;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -49,7 +51,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             default:
                 break;
             case R.id.btn_deng:
-
+                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                startActivity(intent);
 
 
                 break;

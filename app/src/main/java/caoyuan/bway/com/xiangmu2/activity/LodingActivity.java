@@ -92,7 +92,7 @@ public class LodingActivity extends AppCompatActivity implements View.OnClickLis
         SharedPreferences.Editor edit = sp.edit();
         edit.putBoolean("isfalse", false);
         edit.commit();
-        Intent intent = new Intent(LodingActivity.this,MainActivity.class);
+        Intent intent = new Intent(LodingActivity.this,LoginActivity.class);
         startActivity(intent);
         finish();
     }

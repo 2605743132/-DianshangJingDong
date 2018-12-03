@@ -15,7 +15,7 @@
 
 
     <RadioGroup
-
+        android:background="#FF0"
         android:id="@+id/rgHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,6 +31,7 @@
             android:checked="true"
             android:background="@drawable/panduan"
             />
+
 
         <RadioButton
             android:id="@+id/rbCatagory"
@@ -52,7 +53,16 @@
             android:button="@null"
             android:background="@drawable/shopcart"
              />
+        <RadioButton
+            android:id="@+id/rbding"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
 
+            android:background="@drawable/ding"
+            />
         <RadioButton
             android:id="@+id/rbMine"
             android:layout_width="0dp"

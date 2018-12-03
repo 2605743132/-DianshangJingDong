@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Non focused states -->
-    <item  android:state_checked="false" android:drawable="@drawable/alt" />
-    <item  android:state_checked="true"  android:drawable="@drawable/alu" />
+    <item  android:state_checked="false" android:drawable="@drawable/car" />
+    <item  android:state_checked="true"  android:drawable="@drawable/car" />
+
 
 </selector>

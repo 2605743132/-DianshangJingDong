@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RadioButton mRbMine;
     private RadioGroup mRgHome;
     private List<Fragment> list;
+    private RadioButton mRbding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,30 +40,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initData() {
-     list = new ArrayList<>();
+        list = new ArrayList<>();
         list.add(new HomeFragment());
         list.add(new ItemFragment());
         list.add(new ItemFragment());
         list.add(new ItemFragment());
-        mVp.setAdapter(new HomeFragmentpageAdapter(getSupportFragmentManager(),list));
-     mVp.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-         @Override
-         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        list.add(new ItemFragment());
+        mVp.setAdapter(new HomeFragmentpageAdapter(getSupportFragmentManager(), list));
+        mVp.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-         }
+            }
 
-         @Override
-         public void onPageSelected(int position) {
-           mRgHome.check(mRgHome.getChildAt(position).getId());
+            @Override
+            public void onPageSelected(int position) {
+                mRgHome.check(mRgHome.getChildAt(position).getId());
 
-         }
+            }
 
-         @Override
-         public void onPageScrollStateChanged(int state) {
+            @Override
+            public void onPageScrollStateChanged(int state) {
 
-         }
-     });
-       mRbHome.setBackgroundResource(R.drawable.panduan);
+            }
+        });
+        mRbHome.setBackgroundResource(R.drawable.panduan);
 
     }
 
@@ -79,6 +81,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mRgHome = (RadioGroup) findViewById(R.id.rgHome);
         mRgHome.setOnClickListener(this);
 
+        mVp.setOnClickListener(this);
+        mRbding = (RadioButton) findViewById(R.id.rbding);
+        mRbding.setOnClickListener(this);
     }
 
     @Override
@@ -88,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.rbHome:
 
-            mVp.setCurrentItem(0);
+                mVp.setCurrentItem(0);
 
                 break;
 
@@ -100,9 +105,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 mVp.setCurrentItem(2);
                 break;
+
+
+            case R.id.rbding:
+                mVp.setCurrentItem(3);
+                break;
+
             case R.id.rbMine:
 
-                mVp.setCurrentItem(3);
+                mVp.setCurrentItem(4);
                 break;
         }
     }
