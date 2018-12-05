@@ -22,15 +22,15 @@ public class HomeFragment extends Fragment {
     private ArrayList<String> imageUrl;
     private ArrayList<String> imageDes;
     private String[] picUrl = {
-            "http://ws1.sinaimg.cn/large/0065oQSqly1fuh5fsvlqcj30sg10onjk.jpg",
-            "http://ws1.sinaimg.cn/large/0065oQSqly1fuo54a6p0uj30sg0zdqnf.jpg",
-            "http://ws1.sinaimg.cn/large/0065oQSqly1fuh5fsvlqcj30sg10onjk.jpg"
+            "http://172.17.8.100/images/tech/banner/20181026151647.png",
+            "http://172.17.8.100/images/tech/banner/20181026151647.png",
+            "http://172.17.8.100/images/tech/banner/20181026151647.png"
 
     };
     private String[] picDes = {
-            "上百头母猪为何半夜惨叫？",
-            "女生宿舍内衣为何频频失窃？",
-            "宿犬威的不归路"
+            "抽奖",
+            "贝览得美妆蛋",
+            "男款上衣"
 
     };
     private View view;
@@ -49,12 +49,16 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
+
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+
         super.onActivityCreated(savedInstanceState);
+
         initData();
 
 
     }
+
 
     private void initData() {
         //创建image和des的集合
@@ -65,6 +69,7 @@ public class HomeFragment extends Fragment {
             imageUrl.add(picUrl[a]);
             imageDes.add(picDes[a]);
         }
+
         //集合传入banner
         bannr.setData(imageUrl, imageDes);
         bannr.setAdapter(new BGABanner.Adapter<ImageView, String>() {
@@ -73,17 +78,21 @@ public class HomeFragment extends Fragment {
                 //   ImageLoader.getInstance().displayImage(imageUrl.get(position), itemView);
                 Glide.with(getActivity()).load(imageUrl.get(position)).into(itemView);
 
+
+
             }
         });
 
+        getBuJu();
 
     }
-
-
     private void initView(View view) {
         mGv = (GridView) view.findViewById(R.id.gv);
         mRv = (RecyclerView) view.findViewById(R.id.rv);
 
+    }
+   //写布局
+    public void getBuJu() {
 
 
     }

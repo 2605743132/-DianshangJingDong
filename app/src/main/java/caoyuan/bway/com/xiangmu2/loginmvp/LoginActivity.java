@@ -8,9 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import caoyuan.bway.com.xiangmu2.R;
 import caoyuan.bway.com.xiangmu2.activity.MainActivity;
+import caoyuan.bway.com.xiangmu2.register.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -27,6 +29,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      * 登录
      */
     private Button mBtnDeng;
+    /**
+     * 快速注册
+     */
+    private TextView mTee;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +49,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mEditPwd = (EditText) findViewById(R.id.edit_pwd);
         mBtnDeng = (Button) findViewById(R.id.btn_deng);
         mBtnDeng.setOnClickListener(this);
+        mLoginProgress.setOnClickListener(this);
+        mEditName.setOnClickListener(this);
+        mEditPwd.setOnClickListener(this);
+        mTee = (TextView) findViewById(R.id.tee);
+        mTee.setOnClickListener(this);
     }
 
     @Override
@@ -51,10 +62,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             default:
                 break;
             case R.id.btn_deng:
-                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
 
 
+                break;
+
+            case R.id.tee:
+
+             Intent intent1 =new Intent(LoginActivity.this, RegisterActivity.class);
+             startActivity(intent1);
                 break;
         }
     }

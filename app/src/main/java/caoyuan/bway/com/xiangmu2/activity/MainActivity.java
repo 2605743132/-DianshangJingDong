@@ -15,6 +15,7 @@ import caoyuan.bway.com.xiangmu2.R;
 import caoyuan.bway.com.xiangmu2.adapter.HomeFragmentpageAdapter;
 import caoyuan.bway.com.xiangmu2.fragment.HomeFragment;
 import caoyuan.bway.com.xiangmu2.fragment.ItemFragment;
+import caoyuan.bway.com.xiangmu2.fragment.MyFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         list.add(new HomeFragment());
         list.add(new ItemFragment());
         list.add(new ItemFragment());
-        list.add(new ItemFragment());
+        list.add(new MyFragment());
         list.add(new ItemFragment());
         mVp.setAdapter(new HomeFragmentpageAdapter(getSupportFragmentManager(), list));
         mVp.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mVp.setOnClickListener(this);
         mRbding = (RadioButton) findViewById(R.id.rbding);
         mRbding.setOnClickListener(this);
+
     }
 
     @Override

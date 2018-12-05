@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+android:background="@drawable/ad"
+    android:layout_height="match_parent"
+    tools:context=".register.RegisterActivity">
+
+    <EditText
+        android:id="@+id/edit_name_zhu"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="115dp"
+        android:drawableLeft="@drawable/login_icon_phone_n_hdpi"
+        android:hint="手机号"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textCursorDrawable="@null"
+        android:theme="@style/MyEdio" />
+
+    <EditText
+        android:id="@+id/edit_pwd_zhu"
+        android:layout_width="match_parent"
+
+        android:layout_height="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="213dp"
+        android:drawableLeft="@drawable/login_icon_lock_n_hdpi"
+        android:drawableRight="@drawable/login_icon_eye_n_hdhpi"
+        android:hint="登录密码"
+        android:password="true"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textCursorDrawable="@drawable/edittext_bei"
+        android:theme="@style/MyEdio" />
+</RelativeLayout>
