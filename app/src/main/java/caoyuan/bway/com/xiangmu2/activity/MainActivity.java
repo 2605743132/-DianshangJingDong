@@ -45,30 +45,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         list.add(new HomeFragment());
         list.add(new ItemFragment());
         list.add(new ItemFragment());
-        list.add(new MyFragment());
+
         list.add(new ItemFragment());
+        list.add(new MyFragment());
         mVp.setAdapter(new HomeFragmentpageAdapter(getSupportFragmentManager(), list));
         mVp.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+            @Override
+
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
             }
 
             @Override
+
             public void onPageSelected(int position) {
+
                 mRgHome.check(mRgHome.getChildAt(position).getId());
 
             }
 
             @Override
+
             public void onPageScrollStateChanged(int state) {
 
             }
+
         });
+
         mRbHome.setBackgroundResource(R.drawable.panduan);
-
     }
-
     private void initView() {
         mVp = (ViewPager) findViewById(R.id.vp);
         mRbHome = (RadioButton) findViewById(R.id.rbHome);
@@ -81,33 +86,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mRbMine.setOnClickListener(this);
         mRgHome = (RadioGroup) findViewById(R.id.rgHome);
         mRgHome.setOnClickListener(this);
-
         mVp.setOnClickListener(this);
         mRbding = (RadioButton) findViewById(R.id.rbding);
         mRbding.setOnClickListener(this);
-
     }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             default:
+
                 break;
+
             case R.id.rbHome:
 
                 mVp.setCurrentItem(0);
-
                 break;
 
             case R.id.rbCatagory:
                 mVp.setCurrentItem(1);
 
                 break;
+
             case R.id.rbShopcart:
-
                 mVp.setCurrentItem(2);
-                break;
 
+                break;
 
             case R.id.rbding:
                 mVp.setCurrentItem(3);
@@ -116,6 +119,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.rbMine:
 
                 mVp.setCurrentItem(4);
+
                 break;
         }
     }
