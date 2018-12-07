@@ -4,9 +4,8 @@
     android:orientation="vertical"
     android:layout_height="match_parent">
 
-
-    <cn.bingoogolapple.bgabanner.BGABanner
-             android:id="@+id/bannr"
+  <recycler.coverflow.RecyclerCoverFlow
+      android:id="@+id/list"
         android:layout_weight="3"
              android:layout_width="match_parent"
              android:layout_height="0dp"/>

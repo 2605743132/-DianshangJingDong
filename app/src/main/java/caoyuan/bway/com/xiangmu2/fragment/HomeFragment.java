@@ -8,41 +8,36 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
-import android.widget.ImageView;
-
-import com.bumptech.glide.Glide;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import caoyuan.bway.com.xiangmu2.R;
-import cn.bingoogolapple.bgabanner.BGABanner;
+import caoyuan.bway.com.xiangmu2.adapter.BannrAdapter;
+import caoyuan.bway.com.xiangmu2.enity.BannrBean;
+import caoyuan.bway.com.xiangmu2.enity.ShouYeBean;
+import caoyuan.bway.com.xiangmu2.gvmvp.gvpresenter.GvPresenter;
+import caoyuan.bway.com.xiangmu2.gvmvp.gvview.GvView;
+import recycler.coverflow.CoverFlowLayoutManger;
+import recycler.coverflow.RecyclerCoverFlow;
 
-public class HomeFragment extends Fragment {
-    private BGABanner bannr;
-    private ArrayList<String> imageUrl;
-    private ArrayList<String> imageDes;
-    private String[] picUrl = {
-            "http://172.17.8.100/images/tech/banner/20181026151647.png",
-            "http://172.17.8.100/images/tech/banner/20181026151647.png",
-            "http://172.17.8.100/images/tech/banner/20181026151647.png"
+public class HomeFragment extends Fragment implements GvView {
 
-    };
-    private String[] picDes = {
-            "抽奖",
-            "贝览得美妆蛋",
-            "男款上衣"
 
-    };
-    private View view;
     private GridView mGv;
     private RecyclerView mRv;
+    private View view;
+    private RecyclerCoverFlow mList;
+    private List<BannrBean.ResultBean> list;
+    private GvPresenter gvPresenter;
+    private BannrAdapter adapter;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.homefragment, container, false);
-        bannr = view.findViewById(R.id.bannr);
 
         initView(view);
         return view;
@@ -61,39 +56,56 @@ public class HomeFragment extends Fragment {
 
 
     private void initData() {
-        //创建image和des的集合
-        imageUrl = new ArrayList<String>();
-        imageDes = new ArrayList<>();
-        //循环添加到集合
-        for (int a = 0; a < picUrl.length; a++) {
-            imageUrl.add(picUrl[a]);
-            imageDes.add(picDes[a]);
-        }
+        gvPresenter = new GvPresenter();
+        gvPresenter.Attar(this);
 
-        //集合传入banner
-        bannr.setData(imageUrl, imageDes);
-        bannr.setAdapter(new BGABanner.Adapter<ImageView, String>() {
+        gvPresenter.getBannr();
+        list = new ArrayList<>();
+
+        //        mList.setFlatFlow(true); //平面滚动
+        adapter = new BannrAdapter(getActivity(), list);
+        mList.setAdapter(adapter);
+        mList.setOnItemSelectedListener(new CoverFlowLayoutManger.OnSelected() {
             @Override
-            public void fillBannerItem(BGABanner banner, ImageView itemView, @Nullable String model, int position) {
-                //   ImageLoader.getInstance().displayImage(imageUrl.get(position), itemView);
-                Glide.with(getActivity()).load(imageUrl.get(position)).into(itemView);
-
-
-
+            public void onItemSelected(int position) {
+                mList.getLayoutManager().getItemCount();
             }
         });
 
-        getBuJu();
 
     }
+
     private void initView(View view) {
-        mGv = (GridView) view.findViewById(R.id.gv);
-        mRv = (RecyclerView) view.findViewById(R.id.rv);
+
+        mList = (RecyclerCoverFlow) view.findViewById(R.id.list);
 
     }
-   //写布局
-    public void getBuJu() {
 
 
+    @Override
+    public void onSuesee(List<ShouYeBean.ResultBean> list) {
+
+    }
+
+    @Override
+    public void onBannr(List<BannrBean.ResultBean> blist) {
+        if (blist != null) {
+            list.clear();
+            list.addAll(list);
+            adapter.notifyDataSetChanged();
+        }
+    }
+
+    @Override
+    public void onFill() {
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (gvPresenter != null) {
+            gvPresenter.onDestroy();
+        }
     }
 }

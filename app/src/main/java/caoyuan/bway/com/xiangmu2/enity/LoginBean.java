@@ -2,7 +2,6 @@ package caoyuan.bway.com.xiangmu2.enity;
 
 public class LoginBean {
 
-
     private ResultBean result;
     private String message;
     private String status;
@@ -32,7 +31,6 @@ public class LoginBean {
     }
 
     public static class ResultBean {
-
 
         private String headPic;
         private String nickName;

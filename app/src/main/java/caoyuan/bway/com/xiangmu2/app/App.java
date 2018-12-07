@@ -8,11 +8,14 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import java.util.logging.Logger;
 
+import caoyuan.bway.com.xiangmu2.net.HttpNet;
+
 public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
         Fresco.initialize(this);
-
+        HttpNet.init();
+        
 }
 }

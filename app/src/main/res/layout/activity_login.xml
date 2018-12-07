@@ -60,6 +60,7 @@
             android:gravity="center|left">
 
             <CheckBox
+                android:id="@+id/chek"
                 android:layout_width="wrap_content"
                 android:theme="@style/MyCheckBox"
                 android:layout_height="wrap_content" />
