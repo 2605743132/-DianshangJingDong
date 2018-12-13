@@ -6,7 +6,7 @@ import caoyuan.bway.com.xiangmu2.enity.BannrBean;
 import caoyuan.bway.com.xiangmu2.enity.ShouYeBean;
 
 public interface GvView {
-    void onSuesee(List<ShouYeBean.ResultBean> list);
+    void onSuesee(ShouYeBean.ResultBean list);
     void onBannr(List<BannrBean.ResultBean> blist);
     void onFill();
 

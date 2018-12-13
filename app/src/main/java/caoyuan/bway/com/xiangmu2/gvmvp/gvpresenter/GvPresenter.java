@@ -23,12 +23,16 @@ public class GvPresenter {
     }
 
     public void getEerry() {
-        Type type = new TypeToken<ShouYeBean.ResultBean>() {
+        Type type = new TypeToken<ShouYeBean>() {
         }.getType();
         model.getBiz("http://172.17.8.100/small/commodity/v1/commodityList", new ICallBack() {
             @Override
             public void onSuccess(Object o) {
 
+                ShouYeBean bean  =(ShouYeBean) o;
+                if (bean!=null){
+                    view.onSuesee(bean.getResult());
+                }
             }
 
             @Override

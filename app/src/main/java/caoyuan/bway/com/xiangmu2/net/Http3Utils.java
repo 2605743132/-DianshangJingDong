@@ -41,7 +41,9 @@ public class Http3Utils {
         public StringCallBack(Request request, HttpCallBack httpCallBack) {
             this.request = request;
             this.httpCallBack = httpCallBack;
-        }
+
+            }
+
 
         @Override
         public void onFailure(Call call, IOException e) {
@@ -50,10 +52,15 @@ public class Http3Utils {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
+
                         httpCallBack.onError(request, fe);
-                    }
+
+                     }
+
+
                 });
             }
+
         }
 
         @Override

@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mVp.setOnClickListener(this);
         mRbding = (RadioButton) findViewById(R.id.rbding);
         mRbding.setOnClickListener(this);
+
     }
     @Override
     public void onClick(View v) {

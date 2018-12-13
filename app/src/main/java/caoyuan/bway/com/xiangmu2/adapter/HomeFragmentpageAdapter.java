@@ -10,9 +10,15 @@ import java.util.List;
 public class HomeFragmentpageAdapter extends FragmentPagerAdapter {
     List<Fragment> list;
     public HomeFragmentpageAdapter(FragmentManager fm, List<Fragment> list) {
+
         super(fm);
+
         this.list = list;
+
+
+
     }
+
 
 
 
