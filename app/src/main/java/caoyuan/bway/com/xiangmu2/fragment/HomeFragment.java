@@ -85,8 +85,7 @@ public class HomeFragment extends Fragment implements GvView {
         imageResIDs = new int[]{R.drawable.a, R.drawable.b, R.drawable.c, R.drawable.d,
                 R.drawable.bitmap, R.drawable.b,};
 
-        gallery = (MyGallery) view.findViewById(R.id.mygallery);
-        mMygallery = (MyGallery) view.findViewById(R.id.mygallery);
+
         mXrecyc = view.findViewById(R.id.Xrecyc);
 
         mXrecyc = (XRecyclerView) view.findViewById(R.id.Xrecyc);
@@ -239,7 +238,19 @@ public class HomeFragment extends Fragment implements GvView {
 
     @Override
     public void onSuesee(ShouYeBean.ResultBean list) {
+mXrecyc.setLoadingListener(new XRecyclerView.LoadingListener() {
+    @Override
+    public void onRefresh() {
+        doDate();
 
+    }
+
+    @Override
+    public void onLoadMore() {
+        doDate();
+
+    }
+});
         XRecyclerView.LayoutManager layoutManager2 = new GridLayoutManager(getActivity(), 1);
         mXrecyc.setLayoutManager(layoutManager2);
 
@@ -259,6 +270,15 @@ public class HomeFragment extends Fragment implements GvView {
 
     }
 
+    private void doDate() {
+       mXrecyc.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mXrecyc.refreshComplete();
+            }
+        }, 2000);
+
+    }
 }
 
 

@@ -16,6 +16,7 @@ public class App extends Application {
         super.onCreate();
         Fresco.initialize(this);
         HttpNet.init();
-        
-}
+        ImageLoaderConfiguration aDefault = ImageLoaderConfiguration.createDefault(this);
+      ImageLoader.getInstance().init(aDefault);
+    }
 }

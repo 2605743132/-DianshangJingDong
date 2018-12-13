@@ -2,6 +2,7 @@ package caoyuan.bway.com.xiangmu2.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -9,8 +10,12 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import caoyuan.bway.com.xiangmu2.R;
@@ -39,7 +44,8 @@ public class HomeShopAdapter extends RecyclerView.Adapter<HomeShopAdapter.ViewHo
 
 
  };
-
+private List<String> surl;
+    private List<String> slist;
 
 
     public HomeShopAdapter(Context Context, ShouYeBean.ResultBean Shoplist ) {
@@ -77,7 +83,26 @@ public class HomeShopAdapter extends RecyclerView.Adapter<HomeShopAdapter.ViewHo
         int type = getItemViewType(position);
         switch (type) {
             case 0:
+        surl = new ArrayList<>();
 
+        slist = new ArrayList<>();
+
+for (int i  =0 ; i<murl.length;i++){
+surl.add(murl[i]);
+slist.add(mtitle[i]);
+
+
+}
+//集合传入banner
+                viewHolder.banner.setData(surl,slist);
+
+
+                viewHolder.banner.setAdapter(new BGABanner.Adapter<ImageView, String>() {
+                    @Override
+                    public void fillBannerItem(BGABanner banner, ImageView itemView, @Nullable String model, int position) {
+                        ImageLoader.getInstance().displayImage(surl.get(position),itemView);
+                    }
+                });
 
             break;
             case 1:
