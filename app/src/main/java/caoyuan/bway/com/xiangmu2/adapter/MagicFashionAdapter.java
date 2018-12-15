@@ -38,6 +38,8 @@ public class MagicFashionAdapter extends RecyclerView.Adapter<MagicFashionAdapte
         holder.ImMl.setImageURI(Uri.parse(list.get(0).getCommodityList().get(position).getMasterPic()));
         holder.TvMlName.setText(list.get(0).getCommodityList().get(position).getCommodityName());
         holder.TvMlPrice.setText("¥"+list.get(0).getCommodityList().get(position).getPrice()+"");
+
+
     }
 
     @Override

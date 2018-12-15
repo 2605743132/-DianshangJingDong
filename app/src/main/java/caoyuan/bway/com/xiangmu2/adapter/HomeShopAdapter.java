@@ -1,6 +1,7 @@
 package caoyuan.bway.com.xiangmu2.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,12 +20,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import caoyuan.bway.com.xiangmu2.R;
+import caoyuan.bway.com.xiangmu2.activity.WebActivity;
 import caoyuan.bway.com.xiangmu2.enity.ShouYeBean;
 import cn.bingoogolapple.bgabanner.BGABanner;
 
 
 public class HomeShopAdapter extends RecyclerView.Adapter<HomeShopAdapter.ViewHolder> {
-
+    private static final int NORMAL_VIEW = 0;
     private Context mContext;
     private ShouYeBean.ResultBean alist;
  private String[] murl= {
@@ -44,7 +46,11 @@ public class HomeShopAdapter extends RecyclerView.Adapter<HomeShopAdapter.ViewHo
 
 
  };
-private List<String> surl;
+//    private OnItemClickListener onItemClickListener;
+//    public void setOnItemClickListener(OnItemClickListener listener){
+//        onItemClickListener= listener; }
+
+    private List<String> surl;
     private List<String> slist;
 
 
@@ -79,7 +85,7 @@ private List<String> surl;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int position) {
         int type = getItemViewType(position);
         switch (type) {
             case 0:
@@ -116,6 +122,7 @@ slist.add(mtitle[i]);
                 LinearLayoutManager linearLayoutManage = new LinearLayoutManager(mContext);
                 linearLayoutManage.setOrientation(LinearLayoutManager.VERTICAL);
                 viewHolder.Moli.setLayoutManager(linearLayoutManage);
+
                 break;
             case 3:
                 viewHolder.Pinzhi.setAdapter(new QualityLifeAdapter(mContext, alist.getPzsh()));
@@ -123,10 +130,19 @@ slist.add(mtitle[i]);
                 break;
         }
 
-        //viewHolder.tvRxName.setText(list.get(position).getCommodityList().get(position).getPrice()+"");
-       /* viewHolder.tvRxPrice.setText(list.get(0).getCommodityList().get(position).getPrice() + "");
-        viewHolder.tvRxName.setText(list.get(0).getCommodityList().get(position).getCommodityName());
-        Picasso.with(mContext).load(list.get(0).getCommodityList().get(position).getMasterPic()).into(viewHolder.ImRx);*/
+//
+//        if (getItemViewType(position) == NORMAL_VIEW) {
+//            if (onItemClickListener != null) {
+//
+//                viewHolder.Pinzhi.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//
+//                        onItemClickListener.onItemClick(viewHolder.Pinzhi, viewHolder.getLayoutPosition());
+//                    }
+//                });
+//            }
+//        }
     }
 
     @Override
@@ -162,5 +178,8 @@ slist.add(mtitle[i]);
             Pinzhi = itemView.findViewById(R.id.Pinzhi);
         }
     }
+//    public interface OnItemClickListener {
+//        void onItemClick(View v, int position);
+//    }
 }
 

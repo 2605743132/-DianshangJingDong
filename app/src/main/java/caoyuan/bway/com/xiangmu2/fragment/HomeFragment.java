@@ -1,6 +1,7 @@
 package caoyuan.bway.com.xiangmu2.fragment;
 
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Gallery.LayoutParams;
@@ -28,6 +30,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import caoyuan.bway.com.xiangmu2.R;
+import caoyuan.bway.com.xiangmu2.activity.WebActivity;
 import caoyuan.bway.com.xiangmu2.adapter.HomeShopAdapter;
 import caoyuan.bway.com.xiangmu2.enity.BannrBean;
 import caoyuan.bway.com.xiangmu2.enity.ShouYeBean;
@@ -83,7 +86,9 @@ public class HomeFragment extends Fragment implements GvView {
     private void initView(View view) {
 
         imageResIDs = new int[]{R.drawable.a, R.drawable.b, R.drawable.c, R.drawable.d,
+
                 R.drawable.bitmap, R.drawable.b,};
+
 
 
         mXrecyc = view.findViewById(R.id.Xrecyc);
@@ -202,8 +207,10 @@ public class HomeFragment extends Fragment implements GvView {
 //            ImageView imageView;
 //            if (convertView != null) {
 //                imageView = (ImageView) convertView;
+
 //            } else {
 //                imageView = new ImageView(getActivity());
+
 //            }
 //
 //            if (position >= imageResIDs.length) {
@@ -251,12 +258,24 @@ mXrecyc.setLoadingListener(new XRecyclerView.LoadingListener() {
 
     }
 });
+
         XRecyclerView.LayoutManager layoutManager2 = new GridLayoutManager(getActivity(), 1);
+
         mXrecyc.setLayoutManager(layoutManager2);
+
 
         homeShopAdapter = new HomeShopAdapter(getActivity(), list);
 
+//   homeShopAdapter.setOnItemClickListener(new HomeShopAdapter.OnItemClickListener() {
+//    @Override
+//    public void onItemClick(View v, int position) {
+//        Intent intent = new Intent(getActivity(), WebActivity.class);
+//
+//        startActivity(intent);
+//    }
+//});
         mXrecyc.setAdapter(homeShopAdapter);
+
 
     }
 

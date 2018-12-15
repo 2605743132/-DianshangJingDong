@@ -28,7 +28,6 @@ android {
     }
 
 
-
 }
 
 dependencies {
@@ -53,6 +52,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.0.2'
     implementation 'io.reactivex:rxjava:1.0.14'
     implementation 'io.reactivex:rxandroid:1.0.1'
+
+
     //XRecyclerview
     implementation 'com.jcodecraeer:xrecyclerview:1.2.0'
 }

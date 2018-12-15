@@ -29,7 +29,8 @@
             android:name=".loginmvp.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity android:name=".register.RegisterActivity" />
-        <activity android:name=".activity.PersonalDataActivity"></activity>
+        <activity android:name=".activity.PersonalDataActivity" />
+        <activity android:name=".activity.WebActivity"></activity>
     </application>
 
 </manifest>

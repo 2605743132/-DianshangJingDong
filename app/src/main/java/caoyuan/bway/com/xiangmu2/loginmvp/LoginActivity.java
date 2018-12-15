@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import caoyuan.bway.com.xiangmu2.R;
 import caoyuan.bway.com.xiangmu2.activity.MainActivity;
+import caoyuan.bway.com.xiangmu2.enity.LoginBean;
 import caoyuan.bway.com.xiangmu2.loginmvp.loginpresenter.LoginPresenter;
 import caoyuan.bway.com.xiangmu2.loginmvp.loginview.Loginview;
 import caoyuan.bway.com.xiangmu2.register.RegisterActivity;
@@ -116,6 +117,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.tee:
 
                 Intent intent1 = new Intent(LoginActivity.this, RegisterActivity.class);
+
                 startActivity(intent1);
                 break;
 
@@ -127,10 +129,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void initData() {
     }
 
+
+
     @Override
-    public void OnSuccess(String result) {
+    public void OnSuccess(LoginBean loginBean, String result) {
         Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        config.getInt("UserId",loginBean.getResult().getUserId());
+        config.getString("SessionId",loginBean.getResult().getSessionId());
         startActivity(intent);
         finish();
     }

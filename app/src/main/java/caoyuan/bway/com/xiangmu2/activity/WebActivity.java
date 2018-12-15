@@ -5,13 +5,11 @@ import android.os.Bundle;
 
 import caoyuan.bway.com.xiangmu2.R;
 
-public class PersonalDataActivity extends AppCompatActivity {
+public class WebActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_personal_data);
-
+        setContentView(R.layout.activity_web);
     }
 }
