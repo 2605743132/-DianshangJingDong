@@ -20,7 +20,6 @@ import okhttp3.Response;
 
 
 public class LoginModel {
-
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -49,7 +48,8 @@ public class LoginModel {
                     @Override
                     public void run() {
                         if (login_bean.getStatus().equals("0000")) {
-                            httpCallback.OnSuccess(login_bean.getMessage());
+//                            Log.i("userid",""+login_bean.getResult().getUserId());
+                            httpCallback.OnSuccess(login_bean);
                         } else {
                             httpCallback.OnFaile(login_bean.getMessage());
                         }

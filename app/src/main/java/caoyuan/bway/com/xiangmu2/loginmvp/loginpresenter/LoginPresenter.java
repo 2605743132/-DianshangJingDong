@@ -8,7 +8,6 @@ import caoyuan.bway.com.xiangmu2.loginmvp.loginview.Loginview;
 import caoyuan.bway.com.xiangmu2.net.HttpCallback;
 
 public class LoginPresenter {
-
     private LoginModel login_model;
     private Loginview login_view;
 
@@ -18,12 +17,11 @@ public class LoginPresenter {
     }
 
     public void login(String phone, String pwd) {
-
-
         login_model.login(phone, pwd, new HttpCallback() {
             @Override
-            public void OnSuccess(LoginBean loginBean, String result) {
-                login_view.OnSuccess(loginBean,result);
+            public void OnSuccess(Object result) {
+                LoginBean data = (LoginBean) result;
+                login_view.OnSuccess(data);
             }
 
             @Override
@@ -32,4 +30,5 @@ public class LoginPresenter {
             }
         });
     }
+
 }

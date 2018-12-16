@@ -14,6 +14,7 @@ import java.util.List;
 import caoyuan.bway.com.xiangmu2.R;
 import caoyuan.bway.com.xiangmu2.adapter.HomeFragmentpageAdapter;
 import caoyuan.bway.com.xiangmu2.fragment.CarFragment;
+import caoyuan.bway.com.xiangmu2.fragment.CircleFragment;
 import caoyuan.bway.com.xiangmu2.fragment.HomeFragment;
 import caoyuan.bway.com.xiangmu2.fragment.ItemFragment;
 import caoyuan.bway.com.xiangmu2.fragment.MyFragment;
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initData() {
         list = new ArrayList<>();
         list.add(new HomeFragment());
-        list.add(new ItemFragment());
+        list.add(new CircleFragment());
         list.add(new CarFragment());
 
         list.add(new ItemFragment());

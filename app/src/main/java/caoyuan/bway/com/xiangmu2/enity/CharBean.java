@@ -2,6 +2,8 @@ package caoyuan.bway.com.xiangmu2.enity;
 
 import java.util.List;
 
+
+
 public class CharBean {
 
     private String message;
@@ -34,12 +36,24 @@ public class CharBean {
 
     public static class ResultBean {
 
-
         private int commodityId;
         private String commodityName;
         private int count;
         private String pic;
         private int price;
+        private boolean isChecked;
+
+        public ResultBean(boolean isChecked) {
+            this.isChecked = isChecked;
+        }
+
+        public boolean isChecked() {
+            return isChecked;
+        }
+
+        public void setChecked(boolean checked) {
+            isChecked = checked;
+        }
 
         public int getCommodityId() {
             return commodityId;

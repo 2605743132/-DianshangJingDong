@@ -1,6 +1,7 @@
 package caoyuan.bway.com.xiangmu2.loginmvp;
 
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -42,13 +43,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private LoginPresenter presenter;
     private SharedPreferences config;
     private CheckBox mChek;
-
+    private SharedPreferences.Editor edit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         initView();
-        presenter = new LoginPresenter(LoginActivity.this);//实例化P层
+        presenter = new LoginPresenter(this);//实例化P层
         initData();//
         initSp();//初始化sp
 
@@ -62,13 +63,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             String phone = config.getString("phone", "");
             String pwd = config.getString("pwd", "");
             boolean box = config.getBoolean("box", false);
-            mEditName.setText(phone);
+         mEditName.setText(phone);
             mEditPwd.setText(pwd);
             mChek.setChecked(box);
         }
+        }
 
 
-    }
+
 
     private void initView() {
         mLoginProgress = (ProgressBar) findViewById(R.id.login_progress);
@@ -84,7 +86,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mChek = (CheckBox) findViewById(R.id.chek);
         mChek.setOnClickListener(this);
     }
-
+    @SuppressLint("ApplySharedPref")
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -95,6 +97,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 String phone = mEditName.getText().toString().trim();
                 String pwd = mEditPwd.getText().toString().trim();
                 presenter.login(phone, pwd);
+
+
 
                 //判断是否记住密码
                 if (mChek.isChecked()) {
@@ -130,20 +134,30 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
 
-
     @Override
-    public void OnSuccess(LoginBean loginBean, String result) {
-        Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        config.getInt("UserId",loginBean.getResult().getUserId());
-        config.getString("SessionId",loginBean.getResult().getSessionId());
-        startActivity(intent);
-        finish();
+    public void OnSuccess(LoginBean result) {
+        Toast.makeText(this, result.getMessage(), Toast.LENGTH_SHORT).show();
+
+        //初始化sp
+        SharedPreferences user = getSharedPreferences("user", MODE_PRIVATE);
+        //添加数据
+        SharedPreferences.Editor edit = user.edit();
+
+        //存值
+        edit.putString("headPic", result.getResult().getHeadPic())
+                .putString("nickName", result.getResult().getNickName())
+                .putString("sessionId", result.getResult().getSessionId())
+                .putInt("userId", result.getResult().getUserId())
+                .putBoolean("login", false)
+                .commit();
+        finish();//关闭当前页
     }
 
     @Override
     public void OnFaile(String msg) {
+
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+
     }
 }
 
