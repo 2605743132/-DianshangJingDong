@@ -4,6 +4,7 @@ package caoyuan.bway.com.xiangmu2.charmvp;
 
 import caoyuan.bway.com.xiangmu2.enity.CharBean;
 import caoyuan.bway.com.xiangmu2.enity.CircleBean;
+import caoyuan.bway.com.xiangmu2.enity.InformBean;
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.PUT;
@@ -24,9 +25,9 @@ public interface Util {
 //    @GET("findCommodityListByLabe")
 //    Observable<LabelBean> getlabel(@Query("labelId") String labelId, @Query("page") String page, @Query("count") String count);
 
-    //个人信息
-//    @GET("user/verify/v1/getUserById")
-//    Observable<InformBean> getInform();
+
+   @GET("user/verify/v1/getUserById")
+  Observable<InformBean> getInform();
 
 
    @GET("circle/v1/findCircleList")

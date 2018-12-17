@@ -14,6 +14,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 import caoyuan.bway.com.xiangmu2.R;
 import caoyuan.bway.com.xiangmu2.activity.PersonalDataActivity;
+import caoyuan.bway.com.xiangmu2.information.information.InformActivity;
 import caoyuan.bway.com.xiangmu2.loginmvp.LoginActivity;
 
 public class MyFragment extends Fragment implements View.OnClickListener {
@@ -57,6 +58,7 @@ public class MyFragment extends Fragment implements View.OnClickListener {
     private void initData() {
 
 
+
     }
 
     private void initView(View view1) {
@@ -81,7 +83,7 @@ public class MyFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.personal_data:
            //跳转到个人信息界面
-                Intent personal = new Intent(getActivity(), PersonalDataActivity.class);
+                Intent personal = new Intent(getActivity(), InformActivity.class);
                 startActivity(personal);
 
                 break;

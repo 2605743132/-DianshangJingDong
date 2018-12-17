@@ -30,7 +30,8 @@
             android:label="@string/title_activity_login" />
         <activity android:name=".register.RegisterActivity" />
         <activity android:name=".activity.PersonalDataActivity" />
-        <activity android:name=".activity.WebActivity"></activity>
+        <activity android:name=".activity.WebActivity" />
+        <activity android:name=".information.information.InformActivity"></activity>
     </application>
 
 </manifest>
