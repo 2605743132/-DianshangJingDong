@@ -2,8 +2,11 @@ package caoyuan.bway.com.xiangmu2.information.information;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -30,9 +33,18 @@ public class InformActivity extends AppCompatActivity implements InfView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inform);
         initView();
-
+        initData();
          informPresenter = new InfPrever(this);
         informPresenter.inform();
+    }
+
+    private void initData() {
+mInformNam.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+
+    }
+});
     }
 
     @Override
@@ -45,6 +57,7 @@ public class InformActivity extends AppCompatActivity implements InfView {
 
     @Override
     public void OnFaile(Exception e) {
+        Toast.makeText(this,""+e,Toast.LENGTH_SHORT).show();
 
     }
 

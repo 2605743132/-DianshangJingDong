@@ -12,7 +12,7 @@ import java.util.List;
 
 import caoyuan.bway.com.xiangmu2.R;
 
-public class PageAdapter extends PagerAdapter {
+public class  PageAdapter extends PagerAdapter {
     List<Integer> list = new ArrayList();
 
     public PageAdapter(List<Integer> list) {
@@ -42,5 +42,7 @@ public class PageAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-       container.removeView((View) object);    }
+
+       container.removeView((View) object);
+    }
 }

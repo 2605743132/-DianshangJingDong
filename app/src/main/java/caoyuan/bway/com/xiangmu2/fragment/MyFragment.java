@@ -62,7 +62,9 @@ public class MyFragment extends Fragment implements View.OnClickListener {
     }
 
     private void initView(View view1) {
+
         mPersonalData = (TextView) view1.findViewById(R.id.personal_data);
+
         mMyCircle = (TextView) view1.findViewById(R.id.my_circle);
         mMyFootprint = (TextView) view1.findViewById(R.id.my_footprint);
         mMyWallet = (TextView) view1.findViewById(R.id.my_wallet);
@@ -71,7 +73,9 @@ public class MyFragment extends Fragment implements View.OnClickListener {
         mPersonalData.setOnClickListener(this);
         mMyCircle.setOnClickListener(this);
         mMyFootprint.setOnClickListener(this);
+
         mMyWallet.setOnClickListener(this);
+
         mMyShippingAddress.setOnClickListener(this);
         mFc.setOnClickListener(this);
     }

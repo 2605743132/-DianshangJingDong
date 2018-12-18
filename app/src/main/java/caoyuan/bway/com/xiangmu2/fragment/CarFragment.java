@@ -68,13 +68,13 @@ public class CarFragment extends Fragment implements CharView {
         mboxall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean checked = mboxall.isChecked();//true
+                boolean checked = mboxall.isChecked();
                 for (CharBean.ResultBean resultBean : list) {
                     resultBean.setChecked(checked);//给集合中赋值true,条目checkbox选中
                 }
                 //刷新页面
                 carAdapter.notifyDataSetChanged();
-                getSum();//计算总价
+                getSum();//计算s商品总价
             }
         });
 
@@ -82,7 +82,7 @@ public class CarFragment extends Fragment implements CharView {
         carAdapter.setOnShopCartClickListener(new CarAdapter.OnShopCartClickListener() {
             @Override
             public void onShopCartClick(int position, boolean isChecked) {
-                //条目不选中,去哪选不选中
+
                 if (!isChecked) {
                     mboxall.setChecked(false);
                 } else {
@@ -101,12 +101,19 @@ public class CarFragment extends Fragment implements CharView {
         });
 
         //全选
+
         carAdapter.setOnAddClickListener(new CarAdapter.OnAddClickListener() {
+
             @Override
+
             public void onAddClick() {
+
                 getSum();//计算总价
+
             }
+
         });
+
     }
 
     //计算总价
@@ -131,6 +138,7 @@ public class CarFragment extends Fragment implements CharView {
 
     @Override
     public void onCircleFaile(String as) {
+
         Toast.makeText(getActivity(), as, Toast.LENGTH_SHORT).show();
 
     }
