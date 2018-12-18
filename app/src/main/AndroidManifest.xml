@@ -31,7 +31,8 @@
         <activity android:name=".register.RegisterActivity" />
         <activity android:name=".activity.PersonalDataActivity" />
         <activity android:name=".activity.WebActivity" />
-        <activity android:name=".information.information.InformActivity"></activity>
+        <activity android:name=".information.information.InformActivity" />
+        <activity android:name=".footactivity.FootActivity"></activity>
     </application>
 
 </manifest>

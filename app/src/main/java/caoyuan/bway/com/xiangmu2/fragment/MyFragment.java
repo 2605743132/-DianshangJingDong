@@ -14,6 +14,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 import caoyuan.bway.com.xiangmu2.R;
 import caoyuan.bway.com.xiangmu2.activity.PersonalDataActivity;
+import caoyuan.bway.com.xiangmu2.footactivity.FootActivity;
 import caoyuan.bway.com.xiangmu2.information.information.InformActivity;
 import caoyuan.bway.com.xiangmu2.loginmvp.LoginActivity;
 
@@ -95,6 +96,8 @@ public class MyFragment extends Fragment implements View.OnClickListener {
 
                 break;
             case R.id.my_footprint:
+                Intent intent3 = new Intent(getActivity(), FootActivity.class);
+                startActivity(intent3);
                 break;
             case R.id.my_wallet:
                 break;

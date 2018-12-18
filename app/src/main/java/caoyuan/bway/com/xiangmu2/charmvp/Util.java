@@ -5,6 +5,7 @@ package caoyuan.bway.com.xiangmu2.charmvp;
 import caoyuan.bway.com.xiangmu2.enity.CharBean;
 import caoyuan.bway.com.xiangmu2.enity.CircleBean;
 import caoyuan.bway.com.xiangmu2.enity.InformBean;
+import caoyuan.bway.com.xiangmu2.enity.MyFootBean;
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.PUT;
@@ -21,7 +22,7 @@ public interface Util {
     //首页展示
     String HOME_URL = "http://172.17.8.100/small/commodity/v1/commodityList";
 
-    //更多商品
+//    更多商品
 //    @GET("findCommodityListByLabe")
 //    Observable<LabelBean> getlabel(@Query("labelId") String labelId, @Query("page") String page, @Query("count") String count);
 
@@ -36,4 +37,7 @@ public interface Util {
 //    //购物车
     @GET("order/verify/v1/findShoppingCart")
     Observable<CharBean> getcar();
+    //我的足迹
+    @GET("commodity/verify/v1/browseList")
+    Observable<MyFootBean> getmyfoot(@Query("page") int page, @Query("count") int count);
 }
